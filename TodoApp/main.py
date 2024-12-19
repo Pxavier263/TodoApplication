@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import sys
 import models
 from database import engine
 
