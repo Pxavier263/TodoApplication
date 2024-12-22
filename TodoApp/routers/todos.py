@@ -16,6 +16,7 @@ router = APIRouter()
 #models.Base.metadata.create_all(bind=engine)
 
 #app.include_router(auth.router)
+
 def get_db():
     db = SessionLocal()
     try:
@@ -25,8 +26,6 @@ def get_db():
 
 
 db_dependency = Annotated[Session, Depends(get_db)]
-
-
 class TodoRequest(BaseModel):
     title: str = Field(min_length=3)
     description: str = Field(min_length=3, max_length=100)
